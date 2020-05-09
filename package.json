@@ -1,8 +1,7 @@
 {
-  "name": "gatsby-starter-contentful-typescript",
-  "description": "Gatsby Contentful TypeScript starter",
-  "version": "0.3.0",
-  "author": "Filip Havrlent <filip@havrlent.com>",
+  "name": "blog",
+  "version": "1.0",
+  "author": "Hiroki Oi <bombird.dtb@gmail.com>",
   "dependencies": {
     "@types/react-helmet": "^5.0.7",
     "dotenv": "^6.0.0",

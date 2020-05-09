@@ -1,102 +1,121 @@
-# gatsby-typescript-storybook-starter
+<p align="center">
+  <a href="https://next.gatsbyjs.org">
+    <img alt="Gatsby" src="https://www.gatsbyjs.org/monogram.svg" width="60" />
+  </a>
+</p>
+<h1 align="center">
+  Gatsby Contentful TypeScript starter 
+</h1>
 
-[![Live Demo](https://img.shields.io/badge/netlify-live_demo-1e9498.svg)](https://gatsby-typescript-storybook-starter.netlify.com/)
+Gatsby starter with Contentful and TypeScript configuration.
 
-## Credits
 
-This repo was inpired on [this](https://github.com/South-Paw/awesome-gatsby-starter) and convested to do do the same functionaloties but with typescript that's my language of choise.
+## 🚀 Quick start
 
-## Rational
+1.  **Install the Gatsby CLI.**
 
-If you've ever started building a larger website with [GatsbyJS](https://www.gatsbyjs.org) which has multiple different UI elements and patterns, you may have ended up in a similar place I found myself - with some pretty massive component sprawl where each component picks up more and more concerns, slowly becoming overloaded or duplicated. So I decided to try solve it by utilising [Storybook](https://storybook.js.org) and building the required UI components up front in isolation before using them in the Gatsby site.
+    The Gatsby CLI helps you create new sites using Gatsby starters (like this one!)
 
-What I ended up finding with this workflow was that this is a useful way of thinking about each websites UI; as a collection of components rather than one standard layout that does everything with a few bits on the side (...much like how we all build/think about React apps as well).
+    ```sh
+    # install the Gatsby CLI globally
+    npm install -g gatsby-cli
+    ```
 
-The more I've applied this process to the Gatsby sites I work on, the more easy I've found it to manage, improve and maintain the components by building them first and the Gatsby's site second.
+2.  **Create a Gatsby site.**
 
-While this starter may be somewhat opinionated for what I want out of my Gatsby projects, it can quickly and easily be changed around with minimal effort - don't feel locked into what I've provided, it was only ever intended to be a rough guide for starting out and not permenant.
+    Use the Gatsby CLI to create a new site, specifying the default starter.
 
-## Features
+    ```sh
+    # create a new Gatsby site using the default starter
+    gatsby new my-project https://github.com/fhavrlent/gatsby-contentful-typescript-starter
+    ```
 
-- [Gatsby MDX](https://github.com/ChristopherBiscardi/gatsby-mdx) for JSX in Markdown loading, parsing, and rendering of pages
-- [Storybook](https://storybook.js.org/) for isolated component development
-- [styled-components](https://www.styled-components.com/) for CSS-in-JS
-- [ESLint](https://eslint.org/) with [Airbnb's config](https://www.npmjs.com/package/eslint-config-airbnb)
-- [Prettier](https://prettier.io/) integrated into ESLint
-- [Typescript]() integrations and validation
-- A few example components and pages with stories and simple site structure
+3. **Set Contentful API keys.**
 
-## Getting started
+    Rename **`empty.env`** to **`.env`** and set your Contentful API variables
 
-Install this starter (assuming you have [`gatsby-cli`](https://www.npmjs.com/package/gatsby-cli) installed) by running the following command:
+3.  **Start developing.**
 
-```bash
-gatsby new your-projects-name https://github.com/RobertoMSousa/gatsby-typescript-storybook-starter
-```
+    Navigate into your new site’s directory and start it up.
 
-## Development
+    ```sh
+    cd my-default-starter/
+    npm develop
+    ```
 
-[`Node.js`](https://nodejs.org/) v8.0.0 or above is required and using [`Yarn`](https://yarnpkg.com) is recommended.
+4.  **Open the source code and start editing!**
 
-```bash
-# install dependencies
-yarn
+    Your site is now running at `http://localhost:8000`!
+    
+    *Note: You'll also see a second link: `http://localhost:8000___graphql`. This is a tool you can use to experiment with querying your data. Learn more about using this tool in the [Gatsby tutorial](https://next.gatsbyjs.org/tutorial/part-five/#introducing-graphiql).*
+    
+    Open the the `my-default-starter` directory in your code editor of choice and edit `src/pages/index.js`. Save your changes and the browser will update in real time!
+    
+## 🧐 What's inside?
 
-# ...or with npm
-npm install
+A quick look at the top-level files and directories you'll see in a Gatsby project.
 
-# serve with hot reload for development (localhost:8000)
-yarn develop
+    .
+    ├── node_modules
+    ├── src
+    ├── .gitignore
+    ├── .nvmrc
+    ├── .prettierrc
+    ├── empty.env
+    ├── gatsby-browser.js
+    ├── gatsby-config.js
+    ├── gatsby-node.js
+    ├── gatsby-ssr.js
+    ├── LICENSE
+    ├── package-lock.json
+    ├── package.json
+    ├── README.md
+    ├── tsconfig.json
+    ├── tslint.json
+    └── yarn.lock
 
-# serve storybook with hot reload for development (localhost:9000)
-yarn storybook
+  1.  **`/node_modules`**: The directory where all of the modules of code that your project depends on (npm packages) are automatically installed.  
+  
+  2.  **`/src`**: This directory will contain all of the code related to what you will see on the front-end of your site (what you see in the browser), like your site header, or a page template. “Src” is a convention for “source code”.
+  
+  3.  **`.gitignore`**: This file tells git which files it should not track / not maintain a version history for.
+  
+  4. **`.nvmrc`**: NVM configuration so packages works as they should
 
-# lint project
-yarn lint
+  5.  **`.prettierrc`**: This is a configuration file for a tool called [Prettier](https://prettier.io/), which is a tool to help keep the formatting of your code consistent.
 
-# format project source
-yarn format
+  6. **`empty.env`**: Rename to **`.env`** and set your Contentful API key
+  
+  7.  **`gatsby-browser.tsx`**: This file is where Gatsby expects to find any usage of the [Gatsby browser APIs](https://next.gatsbyjs.org/docs/browser-apis/) (if any). These allow customization/extension of default Gatsby settings affecting the browser.
+  
+  6.  **`gatsby-config.js`**: This is the main configuration file for a Gatsby site. This is where you can specify information about your site (metadata) like the site title and description, which Gatsby plugins you’d like to include, etc. (Check out the [config docs](https://next.gatsbyjs.org/docs/gatsby-config/) for more detail).
+  
+  8.  **`gatsby-node.js`**: This file is where Gatsby expects to find any usage of the [Gatsby node APIs](https://next.gatsbyjs.org/docs/node-apis/) (if any). These allow customization/extension of default Gatsby settings affecting pieces of the site build process.
+  
+  9.  **`gatsby-ssr.tsx`**: This file is where Gatsby expects to find any usage of the [Gatsby server-side rendering APIs](https://next.gatsbyjs.org/docs/ssr-apis/) (if any). These allow customization of default Gatsby settings affecting server-side rendering.
+  
+  910.  **`LICENSE`**: Gatsby is licensed under the MIT license.
+  
+  11.  **`package-lock.json`** (See `package.json` below, first). This is an automatically generated file based on the exact versions of your npm dependencies that were installed for your project. (You won’t change this file directly).
+  
+  12.  **`package.json`**: A manifest file for Node.js projects, which includes things like metadata (the project’s name, author, etc). This manifest is how npm knows which packages to install for your project.
+  
+  13.  **`README.md`**: A text file containing useful reference information about your project.
 
-# run tests
-yarn test
+  14.  **`tsconfig.json`**: Config file for TypeScript
 
-# build for production
-yarn build
+  15.  **`tslint.json`**: TS Lint configuration file
+  
+  16.  **`yarn.lock`**: [Yarn](https://yarnpkg.com/) is a package manager alternative to npm. You can use either yarn or npm, though all of the Gatsby docs reference npm.  This file serves essentially the same purpose as `package-lock.json`, just for a different package management system.
 
-# build static storybook (outputs to `public/docs` folder)
-yarn storybook:build
+## 🎓 Learning Gatsby
 
-# serve locally (after building)
-yarn serve
+Looking for more guidance? Full documentation for Gatsby lives [on the website](https://next.gatsbyjs.org/). Here are some places to start:
 
-# clean the local build
-yarn clean
-```
+-   **For most developers, we recommend starting with our [in-depth tutorial for creating a site with Gatsby](https://next.gatsbyjs.org/tutorial/).** It starts with zero assumptions about your level of ability and walks through every step of the process.
 
-## License
+-   **To dive straight into code samples head [to our documentation](https://next.gatsbyjs.org/docs/).** In particular, check out the “Guides”, API reference, and “Advanced Tutorials” sections in the sidebar.
 
-This project is licensed under [MIT](https://github.com/South-Paw/awesome-gatsby-starter/blob/master/LICENSE)
+## 💫 Deploy
 
-```
-The MIT License (MIT)
-
-Copyright (c) 2018 Alex Gabites
-
-Permission is hereby granted, free of charge, to any person obtaining a copy
-of this software and associated documentation files (the "Software"), to deal
-in the Software without restriction, including without limitation the rights
-to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
-copies of the Software, and to permit persons to whom the Software is
-furnished to do so, subject to the following conditions:
-
-The above copyright notice and this permission notice shall be included in all
-copies or substantial portions of the Software.
-
-THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
-IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
-FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
-AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
-LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
-OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
-SOFTWARE.
-```
+[![Deploy to Netlify](https://www.netlify.com/img/deploy/button.svg)](https://app.netlify.com/start/deploy?repository=https://github.com/fhavrlent/gatsby-contentful-typescript-starter)

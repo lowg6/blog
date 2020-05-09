@@ -1,22 +1,23 @@
-import React from 'react';
-import { Link } from 'gatsby';
+import React, { Component } from 'react'
+import { Link } from 'gatsby'
+import { css } from 'emotion'
 
-import Layout from '../components/Layout';
-import Image from './image';
+import Layout from '../components/layout'
 
-const IndexPage = () => (
-  <Layout>
-    <h1>Hi there!</h1>
-    <p>
-      <strong>Thanks for using awesome-gatsby-starter!</strong> Remember to{' '}
-      <a href="https://github.com/RobertoMSousa/gatsby-typescript-storybook-starter">drop a ⭐ on the project</a> if you
-      find it useful.
-    </p>
-    <div style={{ maxWidth: '300px', marginBottom: '1.45rem' }}>
-      <Image />
-    </div>
-    <Link to="/page-2/">Go to page 2</Link>
-  </Layout>
-);
+const header = css({
+  color: '#0505',
+})
 
-export default IndexPage;
+class IndexPage extends Component {
+  render() {
+    return (
+      <Layout>
+        <h1 className={header}>Hi people</h1>
+        <p>Welcome to your new Gatsby site.</p>
+        <p>Now go build something great.</p>
+        <Link to="/page-2/">Go to page 2</Link>
+      </Layout>
+    )
+  }
+}
+export default IndexPage

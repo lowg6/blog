@@ -1,16 +1,10 @@
-# project dependencies
+# Project dependencies
 .cache
 node_modules
 yarn-error.log
 
-# build directory
-public/
-
-# generated folders
-coverage
-
-# OS generated files
+# Build directory
+/public
 .DS_Store
 
-# .env
 .env

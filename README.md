@@ -1,82 +1,102 @@
-# gatsby-contentful-starter
+# gatsby-typescript-storybook-starter
 
-Gatsby [Contentful](https://www.contentful.com) starter for creating a blog
+[![Live Demo](https://img.shields.io/badge/netlify-live_demo-1e9498.svg)](https://gatsby-typescript-storybook-starter.netlify.com/)
 
-![The index page of the starter blog](https://rawgit.com/contentful-userland/gatsby-contentful-starter/master/screenshot.jpg "The index page of the starter blog")
+## Credits
 
-Static sites are scalable, secure and have very little required maintenance. They come with a drawback though. Not everybody feels good editing files, building a project and uploading it somewhere. This is where Contentful comes into play.
+This repo was inpired on [this](https://github.com/South-Paw/awesome-gatsby-starter) and convested to do do the same functionaloties but with typescript that's my language of choise.
 
-With Contentful and Gatsby you can connect your favorite static site generator with an API that provides an easy to use interface for people writing content and automate the publishing using services like [Travis CI](https://travis-ci.org/) or [Netlify](https://www.netlify.com/).
+## Rational
+
+If you've ever started building a larger website with [GatsbyJS](https://www.gatsbyjs.org) which has multiple different UI elements and patterns, you may have ended up in a similar place I found myself - with some pretty massive component sprawl where each component picks up more and more concerns, slowly becoming overloaded or duplicated. So I decided to try solve it by utilising [Storybook](https://storybook.js.org) and building the required UI components up front in isolation before using them in the Gatsby site.
+
+What I ended up finding with this workflow was that this is a useful way of thinking about each websites UI; as a collection of components rather than one standard layout that does everything with a few bits on the side (...much like how we all build/think about React apps as well).
+
+The more I've applied this process to the Gatsby sites I work on, the more easy I've found it to manage, improve and maintain the components by building them first and the Gatsby's site second.
+
+While this starter may be somewhat opinionated for what I want out of my Gatsby projects, it can quickly and easily be changed around with minimal effort - don't feel locked into what I've provided, it was only ever intended to be a rough guide for starting out and not permenant.
 
 ## Features
 
-* Simple content model and structure. Easy to adjust to your needs.
-* Contentful integration using our [Sync API](https://www.contentful.com/developers/docs/references/content-delivery-api/#/reference/synchronization/initial-synchronization-of-entries-of-a-specific-content-type)
-* Using our [Delivery API](https://www.contentful.com/developers/docs/references/content-delivery-api/).
-* Responsive/adaptive images via [gatsby-image](https://www.gatsbyjs.org/packages/gatsby-image/)
-
-## Contribution
-
-This project is part of [contentful-userland](https://github.com/contentful-userland) which means that we’re always open to contributions **and you can be part of userland and shape the project yourself after your first merged pull request**. You can learn more about how contentful userland is organized by visiting [our about repository](https://github.com/contentful-userland/about).
-
-## Requirements
-
-To use this project you have to have a Contentful account. If you don't have one yet you can register at [www.contentful.com/sign-up](https://www.contentful.com/sign-up/).
+- [Gatsby MDX](https://github.com/ChristopherBiscardi/gatsby-mdx) for JSX in Markdown loading, parsing, and rendering of pages
+- [Storybook](https://storybook.js.org/) for isolated component development
+- [styled-components](https://www.styled-components.com/) for CSS-in-JS
+- [ESLint](https://eslint.org/) with [Airbnb's config](https://www.npmjs.com/package/eslint-config-airbnb)
+- [Prettier](https://prettier.io/) integrated into ESLint
+- [Typescript]() integrations and validation
+- A few example components and pages with stories and simple site structure
 
 ## Getting started
 
-Install [Yarn](https://yarnpkg.com/en/docs/install) (if you haven't already).
+Install this starter (assuming you have [`gatsby-cli`](https://www.npmjs.com/package/gatsby-cli) installed) by running the following command:
 
-### Get the source code and install dependencies.
-
-```
-$ git clone git@github.com:contentful-userland/gatsby-contentful-starter.git
-$ yarn install
+```bash
+gatsby new your-projects-name https://github.com/RobertoMSousa/gatsby-typescript-storybook-starter
 ```
 
-Or use the [Gatsby CLI](https://www.npmjs.com/package/gatsby-cli).
+## Development
+
+[`Node.js`](https://nodejs.org/) v8.0.0 or above is required and using [`Yarn`](https://yarnpkg.com) is recommended.
+
+```bash
+# install dependencies
+yarn
+
+# ...or with npm
+npm install
+
+# serve with hot reload for development (localhost:8000)
+yarn develop
+
+# serve storybook with hot reload for development (localhost:9000)
+yarn storybook
+
+# lint project
+yarn lint
+
+# format project source
+yarn format
+
+# run tests
+yarn test
+
+# build for production
+yarn build
+
+# build static storybook (outputs to `public/docs` folder)
+yarn storybook:build
+
+# serve locally (after building)
+yarn serve
+
+# clean the local build
+yarn clean
+```
+
+## License
+
+This project is licensed under [MIT](https://github.com/South-Paw/awesome-gatsby-starter/blob/master/LICENSE)
 
 ```
-$ gatsby new contentful-starter https://github.com/contentful-userland/gatsby-contentful-starter
+The MIT License (MIT)
+
+Copyright (c) 2018 Alex Gabites
+
+Permission is hereby granted, free of charge, to any person obtaining a copy
+of this software and associated documentation files (the "Software"), to deal
+in the Software without restriction, including without limitation the rights
+to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+copies of the Software, and to permit persons to whom the Software is
+furnished to do so, subject to the following conditions:
+
+The above copyright notice and this permission notice shall be included in all
+copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+SOFTWARE.
 ```
-
-### Set up of the needed content model and create a configuration file
-
-This project comes with a Contentful setup command `yarn run setup`.
-
-![Command line dialog of the yarn run setup command](https://rawgit.com/contentful-userland/gatsby-contentful-starter/master/setup.jpg "Command line dialog of the yarn run setup command")
-
-This command will ask you for a space ID, and access tokens for the Contentful Management and Delivery API and then import the needed content model into the space you define and write a config file (`./contentful.json`).
-
-`yarn run setup` automates that for you but if you want to do it yourself rename `.contentful.json.sample` to `.contentful.json` and add your configuration in this file.
-
-## Crucial Commands
-
-This project comes with a few handy commands for linting and code fixing. The most important ones are the ones to develop and ship code. You can find the most important commands below.
-
-### `yarn run dev`
-
-Run in the project locally.
-
-### `yarn run build`
-
-Run a production build into `./public`. The result is ready to be put on any static hosting you prefer.
-
-### `yarn run deploy`
-
-Run a production build into `./public` and publish the site to GitHub pages.
-
-### `yarn run cleanup-repository`
-
-Removes all dependencies, scripts and data from the installation script.
-
-## Roadmap
-
-- [x] [make the starter completely responsive](https://github.com/contentful-userland/gatsby-contentful-starter/issues/2)
-- [ ] [include tags](https://github.com/contentful-userland/gatsby-contentful-starter/issues/3)
-- [x] [support traced placeholders](https://github.com/contentful-userland/gatsby-contentful-starter/issues/4)
-- [ ] [add i18n](https://github.com/contentful-userland/gatsby-contentful-starter/issues/6)
-
-## Other resources
-
-- Tutorial video series ["Building a blazing fast website with GatsbyJS and Contentful"](https://www.youtube.com/watch?v=Ek4o40w1tH4&list=PL8KiuH6vpACV-F7jXribe4YveGBhBeG9A) by @Khaledgarbaya

@@ -1,40 +1,66 @@
-if (process.env.ENVIROMENT !== 'production') {
-  require('dotenv').config()
-}
+const dotenv = require('dotenv')
+const path = require('path')
 
-const contentfulConfig = {
-  spaceId: process.env.CONTENTFUL_SPACE_ID,
-  accessToken: process.env.CONTENTFUL_ACCESS_TOKEN,
+if (process.env.ENVIROMENT !== 'production') {
+  dotenv.config()
 }
 
 module.exports = {
   siteMetadata: {
-    title: 'Gatsby Contentful TypeScript starter',
+    title: `The Blog`,
+    description: `lowg's blog`,
+    author: `lowg`,
   },
   plugins: [
-    'gatsby-plugin-react-helmet',
+    `gatsby-transformer-remark`,
+    `gatsby-transformer-sharp`,
+    {
+      resolve: `gatsby-plugin-graphql-codegen`,
+      options: {
+        fileName: `types/graphql-types.d.ts`,
+      },
+    },
     {
       resolve: `gatsby-plugin-manifest`,
       options: {
-        name: 'gatsby-starter-contentful-typescript',
-        short_name: 'starter',
-        start_url: '/',
-        background_color: '#663399',
-        theme_color: '#663399',
-        display: 'minimal-ui',
-        icon: 'src/images/gatsby-icon.png', // This path is relative to the root of the site.
+        name: `gatsby-starter-default`,
+        short_name: `starter`,
+        start_url: `/`,
+        background_color: `#663399`,
+        theme_color: `#663399`,
+        display: `minimal-ui`,
+        icon: `src/images/gatsby-icon.png`, // This path is relative to the root of the site.
       },
     },
-    'gatsby-plugin-offline',
+    `gatsby-plugin-postcss`,
+    {
+      resolve: 'gatsby-plugin-purgecss',
+      options: {
+        content: [
+          path.join(process.cwd(), 'src/**/!(*.d).{js,jsx,ts,tsx,md,mdx}'),
+        ],
+        printRejected: true,
+        develop: false,
+        tailwind: true,
+        whitelist: ['emoji'],
+      },
+    },
+    `gatsby-plugin-react-helmet`,
+    `gatsby-plugin-sharp`,
     `gatsby-plugin-typescript`,
-    'gatsby-transformer-remark',
-    'gatsby-plugin-sharp',
     {
       resolve: `gatsby-source-contentful`,
-      options: contentfulConfig,
+      options: {
+        spaceId: process.env.CONTENTFUL_SPACE_ID,
+        accessToken: process.env.CONTENTFUL_ACCESS_TOKEN,
+      },
     },
     {
-      resolve: `gatsby-plugin-emotion`,
+      resolve: `gatsby-source-filesystem`,
+      options: {
+        name: `images`,
+        path: `${__dirname}/src/images`,
+      },
     },
   ],
 }
